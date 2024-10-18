@@ -16,8 +16,9 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go-version }}
-      - name: Install dependencies
+      - name: Go to your work directory
         run: go mod init
+      - name: Install dependencies
         run: go get .
       - name: Test with Go
         run: go test -json > TestResults-${{ matrix.go-version }}.json
