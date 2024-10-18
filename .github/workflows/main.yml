@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - run: npm init
+      - run: npm init -y
       - run: npm install
       - run: npm run build
 
@@ -34,7 +34,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - run: npm install npm@latest -g
+      - run: npm init -y
+      - run: npm install
       - run: npm run prettier:check
       - run: npm run eslint --ext .ts ./src
       - run: npm run test 
